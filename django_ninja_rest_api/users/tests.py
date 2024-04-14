@@ -9,6 +9,8 @@ class UsersManagersTests(TestCase):
         user = user_model.objects.create_user(email="any@user.com", password="pass")
 
         self.assertEqual(user.email, "any@user.com")
+        self.assertTrue(user.is_active)
+        self.assertFalse(user.is_staff)
         self.assertFalse(user.is_author)
 
         try:
@@ -30,6 +32,8 @@ class UsersManagersTests(TestCase):
         admin_user = user_model.objects.create_superuser(email="super@user.com", password="pass")
 
         self.assertEqual(admin_user.email, "super@user.com")
+        self.assertTrue(admin_user.is_active)
+        self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_author)
 
         try:
