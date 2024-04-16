@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from tinymce.widgets import TinyMCE
 
 from .models import CustomUser
 
