@@ -1,10 +1,12 @@
 from django.db import models
+from treebeard.mp_tree import MP_Node
 
 
-class Category(models.Model):
+class Category(MP_Node):
     name = models.CharField(max_length=250)
     logo = models.ImageField(upload_to='uploads/logos')
-    parent = models.ForeignKey('self', on_delete=models.RESTRICT, blank=True, null=True)
+
+    node_order_by = ['name']
 
     class Meta:
         verbose_name_plural = 'Categories'
