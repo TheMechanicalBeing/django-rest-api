@@ -13,3 +13,13 @@ class Category(MP_Node):
 
     def __str__(self):
         return self.name
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=320)
+
+    class Meta:
+        verbose_name_plural = 'Tags'
+
+    def __str__(self):
+        return self.name
