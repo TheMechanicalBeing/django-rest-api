@@ -16,9 +16,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'adminsortable2',
     'tinymce',
     'treebeard',
     'content.apps.ContentConfig',
+    'module.apps.ModuleConfig',
     'users.apps.UsersConfig',
 ]
 
