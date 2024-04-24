@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .forms import MenuForm
-from .models import Menu
+from .models import Block, Menu
 
 
 class MenuAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class MenuAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Menu, MenuAdmin)
+admin.site.register(Block)

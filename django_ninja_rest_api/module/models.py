@@ -1,5 +1,12 @@
 from django.db import models
-from django.core.exceptions import ValidationError
+
+
+def visual_options():
+    return {
+        'standard': 'Standard',
+        'horizontal': 'Horizontal',
+        'vertical': 'Vertical',
+    }
 
 
 class Menu(models.Model):
@@ -18,3 +25,15 @@ class Menu(models.Model):
             return self.name
         else:
             return f'{self.category.name} (Category reference)'
+
+
+class Block(models.Model):
+    article = models.ManyToManyField('content.Article', blank=True)
+    block_visual = models.CharField(max_length=50, choices=visual_options)
+    block_position = models.CharField(max_length=50)
+    block_row = models.PositiveIntegerField()
+    title = models.CharField(max_length=250)
+    show_title = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
