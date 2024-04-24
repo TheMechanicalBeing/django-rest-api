@@ -28,7 +28,7 @@ class Menu(models.Model):
 
 
 class Block(models.Model):
-    article = models.ManyToManyField('content.Article', blank=True)
+    articles = models.ManyToManyField('content.Article', blank=True)
     block_visual = models.CharField(max_length=50, choices=visual_options)
     block_position = models.CharField(max_length=50)
     block_row = models.PositiveIntegerField()

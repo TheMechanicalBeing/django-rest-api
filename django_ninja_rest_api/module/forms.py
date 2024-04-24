@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Menu
+from .models import Block, Menu
 
 
 class MenuForm(forms.ModelForm):
@@ -19,3 +19,9 @@ class MenuForm(forms.ModelForm):
                 raise forms.ValidationError('You should enter either category or link and name')
 
         return cleaned_data
+
+
+class BlockForm(forms.ModelForm):
+    class Meta:
+        model = Block
+        exclude = ('articles',)
